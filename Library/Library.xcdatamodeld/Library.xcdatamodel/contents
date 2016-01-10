@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Automatic">
+    <entity name="Author" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Book" inverseName="authors" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Book" syncable="YES">
+        <attribute name="pages" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="publicationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="authors" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Author" inverseName="books" inverseEntity="Author" syncable="YES"/>
+        <relationship name="libraries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Library" inverseName="books" inverseEntity="Library" syncable="YES"/>
+    </entity>
+    <entity name="Library" syncable="YES">
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="libraries" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Library" positionX="-342" positionY="-117" width="128" height="88"/>
+        <element name="Book" positionX="-155" positionY="29" width="128" height="103"/>
+        <element name="Author" positionX="-126" positionY="-117" width="128" height="88"/>
+    </elements>
+</model>
